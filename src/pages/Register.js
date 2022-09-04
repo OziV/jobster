@@ -43,6 +43,7 @@ function Register() {
     setValues({ ...values, isMember: !values.isMember });
   };
 
+  console.log(user);
   useEffect(() => {
     if (user) {
       setTimeout(() => {
