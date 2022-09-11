@@ -1475,7 +1475,7 @@ export const updateUser = createAsyncThunk(
   }
 );
 
-// logoutUser
+// logoutUser 
 logoutUser: (state) => {
       state.user = null;
       state.isSidebarOpen = false;
