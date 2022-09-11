@@ -4,10 +4,12 @@ import { FormRow } from "../../components";
 import Wrapper from "../../assets/wrappers/DashboardFormPage";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { updateUser } from "../../features/user/userSlice";
 
-function Profile() {
+const Profile = () => {
   const { isLoading, user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
+
   const [userData, setUserData] = useState({
     name: user?.name || "",
     email: user?.email || "",
@@ -18,13 +20,14 @@ function Profile() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, lastName, location } = userData;
+
     if (!name || !email || !lastName || !location) {
-      toast.error("please fill out all fields");
+      toast.error("Please Fill Out All Fields");
       return;
     }
+    dispatch(updateUser(userData));
   };
-
-  const handleChange = () => {
+  const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setUserData({ ...userData, [name]: value });
@@ -34,6 +37,7 @@ function Profile() {
     <Wrapper>
       <form className="form" onSubmit={handleSubmit}>
         <h3>profile</h3>
+
         <div className="form-center">
           <FormRow
             type="text"
@@ -61,12 +65,12 @@ function Profile() {
             handleChange={handleChange}
           />
           <button className="btn btn-block" type="submit" disabled={isLoading}>
-            {isLoading ? "please wait..." : "save changes"}
+            {isLoading ? "Please Wait..." : "save changes"}
           </button>
         </div>
       </form>
     </Wrapper>
   );
-}
+};
 
 export default Profile;

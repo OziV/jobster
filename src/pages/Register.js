@@ -19,7 +19,7 @@ function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onChange = (e) => {
+  const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setValues({ ...values, [name]: value });
@@ -62,7 +62,7 @@ function Register() {
             type="text"
             name="name"
             value={values.name}
-            onChange={onChange}
+            onChange={handleChange}
           />
         )}
 
@@ -70,13 +70,13 @@ function Register() {
           type="email"
           name="email"
           value={values.email}
-          onChange={onChange}
+          onChange={handleChange}
         />
         <FormRow
           type="password"
           name="password"
           value={values.password}
-          onChange={onChange}
+          onChange={handleChange}
         />
         <button type="submit" className="btn btn-block" disabled={isLoading}>
           {isLoading ? "Loading..." : "Submit"}
