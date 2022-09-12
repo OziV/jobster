@@ -2,7 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import customFetch from "../../utils/axios";
 import { getUserFromLocalStorage } from "../../utils/localStorage";
+<<<<<<< HEAD
 import { logoutUser } from "../user/userSlice ";
+=======
+import { logoutUser } from "../user/userSlice";
+import { showLoading, hideLoading, getAllJobs } from "../allJobs/allJobsSlice";
+>>>>>>> wip_pages_all-jobs
 
 const initialState = {
   isLoading: false,
