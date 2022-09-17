@@ -2,6 +2,10 @@
 
 > React Job Tracking App.
 
+<div> 
+
+</div>
+
 ## Site URL
 
 [Jobster](https://oziv-jobster.netlify.app/)
